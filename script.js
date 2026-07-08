@@ -42,16 +42,14 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    console.log(computerChoice);
-
     if (win) {
         humanScore++;
-        console.log("You win!");
+        console.log("You win! " + humanChoice + " beats " + computerChoice);
     } else if (win === false) {
         computerScore++;
-        console.log("You lose!");
+        console.log("You lose! " + computerChoice + " beats " + humanChoice);
     } else {
-        console.log("You Tied!");
+        console.log("You Tied! You both picked " + humanChoice);
     }
 
     console.log("Your score: " + humanScore);
@@ -59,7 +57,13 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-playRound(getHumanChoice(), getComputerChoice());
+playGame();

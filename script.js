@@ -1,5 +1,4 @@
  function getComputerChoice() {
-
     let choiceRandomizer = Math.random();
 
     if (choiceRandomizer < 1/3) {
@@ -11,4 +10,12 @@
     }
  }
 
-function 
+ function getHumanChoice() {
+    let humanChoice = prompt("Enter your input:");
+
+    return(humanChoice)
+ }
+
+let humanScore;
+let computerScore;
+

@@ -87,14 +87,22 @@ function loadGame() {
     selectionSetComputer.classList.add("selectionSet");
 
     const rockComputer = document.createElement("div");
-    rockComputer.classList.add("selection");
+    const paperComputer = document.createElement("div");
+    const scissorsComputer = document.createElement("div");
 
-    const paperComputer = rockComputer.cloneNode(true);
-    const scissorsComputer = rockComputer.cloneNode(true);
+    rockComputer.classList.add("selection", "rock");
+    paperComputer.classList.add("selection", "paper");
+    scissorsComputer.classList.add("selection", "scissors");
 
     selectionSetComputer.append(rockComputer, paperComputer, scissorsComputer);
 
     const selectionSetPlayer = selectionSetComputer.cloneNode(true);
+
+    // Event delegation for player mouseover/click mechanics
+    selectionSetPlayer.addEventListener('click', (event) => {
+        event.target.classList.add("selected");
+        startGame(event.target.classList);
+    });
     
     // Creating computer and player selection headers
     const computerHeader = document.createElement("div");
@@ -107,12 +115,10 @@ function loadGame() {
     playerFooter.classList.add("selectionSetMargin");
     
     body.append(computerHeader, selectionSetComputer, selectionSetPlayer, playerFooter);
-    
-    startGame();
 }
 
-function startGame() {
-    console.log("game started!")
+function startGame(playerChoice) {
+    console.log(playerChoice);
 }
 
 

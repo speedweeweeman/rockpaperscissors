@@ -1,9 +1,11 @@
-body {
-    width: max-content;
-    height: max-content;
-}
-
 .startButton {
+    background-color: aqua;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    font-size: 10vw;
+    
     display: flex;
-    flex: 1, 1, 0;   
+    justify-content: center;
+    align-items: center;
 }

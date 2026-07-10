@@ -65,9 +65,12 @@ function playGame() {
 
 function startScreen() {
     const body = document.querySelector("body");
-    const startButton = document.createElement("button");
+    const startButton = document.createElement("div");
+
+    startButton.textContent = "Click me to start!"
 
     startButton.classList.add("startButton");
+    startButton.addEventListener('click', () => body.removeChild(startButton));
 
     body.appendChild(startButton);
 }

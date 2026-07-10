@@ -36,17 +36,20 @@
 }
 
 .rock {
-    
+    background-image: url(/Users/brianhuang/repos/rockpaperscissors/icons/235135_v9_bc.jpg);
+    background-size: cover;
 }
 
 .paper {
-
+    background-image: url(/Users/brianhuang/repos/rockpaperscissors/icons/Toilet_paper_orientation_under.jpg);
+    background-size: cover;
 }
 
 .scissors {
-
+    background-image: url(/Users/brianhuang/repos/rockpaperscissors/icons/s-l1200.png);
+    background-size: cover;
 }
 
 .selected {
-    border: 5px solid blue;
+    border: 3px solid blue;
 }

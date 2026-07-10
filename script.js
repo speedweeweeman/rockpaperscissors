@@ -79,6 +79,7 @@ function startScreen() {
 }
 
 function loadGame() {
+    // Creating selection boxes
     const body = document.querySelector("body");
     body.classList.add("bodyClass");
     
@@ -94,10 +95,24 @@ function loadGame() {
     selectionSetComputer.append(rockComputer, paperComputer, scissorsComputer);
 
     const selectionSetPlayer = selectionSetComputer.cloneNode(true);
-
-    body.append(selectionSetComputer, selectionSetPlayer);
-
+    
+    // Creating computer and player selection headers
+    const computerHeader = document.createElement("div");
+    const playerFooter = document.createElement("div");
+    
+    computerHeader.textContent = "Computer Choice";
+    playerFooter.textContent = "Player Choice";
+    
+    computerHeader.classList.add("selectionSetMargin");
+    playerFooter.classList.add("selectionSetMargin");
+    
+    body.append(computerHeader, selectionSetComputer, selectionSetPlayer, playerFooter);
+    
     startGame();
+}
+
+function startGame() {
+    console.log("game started!")
 }
 
 

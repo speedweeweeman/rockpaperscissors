@@ -14,25 +14,35 @@
  // Function that plays a round
 function playRound(humanChoice, computerChoice) {
     let win;
+    const computerSelection = document.querySelector('.computerSelection');
 
-    if (humanChoice == "rock") {
-        if (computerChoice == "scissors") {
-            win = true;
-        } else if (computerChoice == "paper") {
+    if (computerChoice == "rock") {
+        if (humanChoice == "scissors") {
             win = false;
-        }
-    } else if (humanChoice == "paper") {
-        if (computerChoice == "rock") {
+        } else if (humanChoice == "paper") {
             win = true;
-        } else if (computerChoice == "scissors") {
-            win = false;
         }
-    } else if (humanChoice == "scissors") {
-        if (computerChoice == "paper") {
+
+        const computerHighlight = computerSelection.querySelector('.rock');
+        computerHighlight.classList.add("computerHighlighted");
+    } else if (computerChoice == "paper") {
+        if (humanChoice == "rock") {
+            win = false;
+        } else if (humanChoice == "scissors") {
             win = true;
-        } else if (computerChoice == "rock") {
-            win = false;
         }
+
+        const computerHighlight = computerSelection.querySelector('.paper');
+        computerHighlight.classList.add("computerHighlighted");
+    } else if (computerChoice == "scissors") {
+        if (humanChoice == "paper") {
+            win = false;
+        } else if (humanChoice == "rock") {
+            win = true;
+        }
+
+        const computerHighlight = computerSelection.querySelector('.scissors');
+        computerHighlight.classList.add("computerHighlighted");
     }
 
     if (win) {
@@ -85,6 +95,7 @@ function loadGame() {
 
     const selectionSetPlayer = selectionSetComputer.cloneNode(true);
     selectionSetPlayer.classList.add("playerSelection");
+    selectionSetComputer.classList.add("computerSelection");
 
     // Event delegation for player click mechanic
     selectionSetPlayer.addEventListener('click', function chosen(event) {

@@ -1,0 +1,9 @@
+body {
+    width: max-content;
+    height: max-content;
+}
+
+.startButton {
+    display: flex;
+    flex: 1, 1, 0;   
+}

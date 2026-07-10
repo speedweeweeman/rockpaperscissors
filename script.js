@@ -64,11 +64,15 @@ function playGame() {
 }
 
 function startScreen() {
+    const body = document.querySelector("body");
     const startButton = document.createElement("button");
 
-    startButton.classList.add
+    startButton.classList.add("startButton");
+
+    body.appendChild(startButton);
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
+startScreen()

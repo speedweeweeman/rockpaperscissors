@@ -63,7 +63,12 @@ function playGame() {
     }
 }
 
+function startScreen() {
+    const startButton = document.createElement("button");
+
+    startButton.classList.add
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();

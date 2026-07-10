@@ -97,15 +97,15 @@ function loadGame() {
     selectionSetComputer.append(rockComputer, paperComputer, scissorsComputer);
 
     const selectionSetPlayer = selectionSetComputer.cloneNode(true);
+    selectionSetPlayer.classList.add("playerSelection");
 
     // Event delegation for player click mechanic
     selectionSetPlayer.addEventListener('click', function chosen(event) {
         event.target.classList.add("selected");
         startGame(event.target.classList);
-        selectionSetPlayer.removeEventListener('click', chosen)
+        selectionSetPlayer.removeEventListener('click', chosen);
+        selectionSetPlayer.classList.remove("playerSelection");
     });
-
-
     
     // Creating computer and player selection headers
     const computerHeader = document.createElement("div");

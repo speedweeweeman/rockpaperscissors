@@ -11,13 +11,6 @@
     }
  }
 
- // Function that gets a random choice for the human
- function getHumanChoice() {
-    let humanChoice = prompt("Enter your input:");
-
-    return(humanChoice.toLowerCase())
- }
-
  // Function that plays a round
 function playRound(humanChoice, computerChoice) {
     let win;
@@ -55,12 +48,6 @@ function playRound(humanChoice, computerChoice) {
     console.log("Your score: " + humanScore);
     console.log("Computer score: " + computerScore);
 
-}
-
-function playGame() {
-    for (i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
 }
 
 function startScreen() {
@@ -121,7 +108,17 @@ function loadGame() {
 }
 
 function startGame(playerChoice) {
-    console.log(playerChoice);
+    let chosenChoice = "";
+
+    if (playerChoice.contains("rock")) {
+        chosenChoice = "rock";
+    } else if (playerChoice.contains("paper")) {
+        chosenChoice = "paper";
+    } else {
+        chosenChoice = "scissors";
+    }
+
+    playRound(chosenChoice, getComputerChoice());
 }
 
 

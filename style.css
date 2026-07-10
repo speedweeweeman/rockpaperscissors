@@ -9,3 +9,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.bodyClass {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectionSet {
+    display: flex;
+    flex: 1;
+}
+
+.selection {
+    flex: 1;
+    border: 3px solid red;
+}

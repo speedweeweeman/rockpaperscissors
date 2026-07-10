@@ -72,16 +72,32 @@ function startScreen() {
     startButton.classList.add("startButton");
     startButton.addEventListener('click', () => {
         body.removeChild(startButton);
-        startGame();
+        loadGame();
     });
 
     body.appendChild(startButton);
 }
 
-function startGame() {
+function loadGame() {
     const body = document.querySelector("body");
+    body.classList.add("bodyClass");
+    
+    const selectionSetComputer = document.createElement("div");
+    selectionSetComputer.classList.add("selectionSet");
 
-    const computerChoiceText = document.
+    const rockComputer = document.createElement("div");
+    rockComputer.classList.add("selection");
+
+    const paperComputer = rockComputer.cloneNode(true);
+    const scissorsComputer = rockComputer.cloneNode(true);
+
+    selectionSetComputer.append(rockComputer, paperComputer, scissorsComputer);
+
+    const selectionSetPlayer = selectionSetComputer.cloneNode(true);
+
+    body.append(selectionSetComputer, selectionSetPlayer);
+
+    startGame();
 }
 
 

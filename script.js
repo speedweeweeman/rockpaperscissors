@@ -70,10 +70,20 @@ function startScreen() {
     startButton.textContent = "Click me to start!"
 
     startButton.classList.add("startButton");
-    startButton.addEventListener('click', () => body.removeChild(startButton));
+    startButton.addEventListener('click', () => {
+        body.removeChild(startButton);
+        startGame();
+    });
 
     body.appendChild(startButton);
 }
+
+function startGame() {
+    const body = document.querySelector("body");
+
+    const computerChoiceText = document.
+}
+
 
 let humanScore = 0;
 let computerScore = 0;

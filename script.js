@@ -98,11 +98,14 @@ function loadGame() {
 
     const selectionSetPlayer = selectionSetComputer.cloneNode(true);
 
-    // Event delegation for player mouseover/click mechanics
-    selectionSetPlayer.addEventListener('click', (event) => {
+    // Event delegation for player click mechanic
+    selectionSetPlayer.addEventListener('click', function chosen(event) {
         event.target.classList.add("selected");
         startGame(event.target.classList);
+        selectionSetPlayer.removeEventListener('click', chosen)
     });
+
+
     
     // Creating computer and player selection headers
     const computerHeader = document.createElement("div");

@@ -1,4 +1,34 @@
- // Function that gets a random choice for the computer
+ function loadEndScreen(win, humanChoice, comptuerChoice) {
+    const body = document.querySelector("body");
+    body.replaceChildren();
+    
+    const winTitle = document.createElement("h1");
+    const score = document.createElement("p");
+    const finishButton = document.createElement("button");
+
+    if (win) {
+        humanScore++;
+        winTitle.textContent = "YOU WIN!"
+    } else if (win === false) {
+        computerScore++;
+        winTitle.textContent = "YOU LOSE!"
+    } else {
+        winTitle.textContent = "YOU TIE!"
+    }
+
+    score.textContent = "Your score: " + humanScore + " | Computer score: " + computerScore;
+    
+    finishButton.textContent = "Play again?";
+    finishButton.classList.add("finishButton");
+    
+    // Add event listener to finish button to restart game
+
+    finishButton.addEventListener('click', startScreen);
+    
+    body.classList.add("finishBackground");
+    body.append(winTitle, score, finishButton);
+ }
+ 
  function getComputerChoice() {
     let choiceRandomizer = Math.random();
 
@@ -11,7 +41,7 @@
     }
  }
 
- // Function that plays a round
+ // Function that calculates the computer choice and final result
 function playRound(humanChoice, computerChoice) {
     let win;
     const computerSelection = document.querySelector('.computerSelection');
@@ -45,23 +75,15 @@ function playRound(humanChoice, computerChoice) {
         computerHighlight.classList.add("computerHighlighted");
     }
 
-    if (win) {
-        humanScore++;
-        console.log("You win! " + humanChoice + " beats " + computerChoice);
-    } else if (win === false) {
-        computerScore++;
-        console.log("You lose! " + computerChoice + " beats " + humanChoice);
-    } else {
-        console.log("You Tied! You both picked " + humanChoice);
-    }
-
-    console.log("Your score: " + humanScore);
-    console.log("Computer score: " + computerScore);
-
+    setTimeout(loadEndScreen, 1500, win, humanChoice, computerChoice);
 }
 
+// Function for initial start button
 function startScreen() {
     const body = document.querySelector("body");
+    body.replaceChildren();
+    body.className = "";
+
     const startButton = document.createElement("div");
 
     startButton.textContent = "Click me to start!"
@@ -75,6 +97,7 @@ function startScreen() {
     body.appendChild(startButton);
 }
 
+// Function that loads in all content and player selection
 function loadGame() {
     // Creating selection boxes
     const body = document.querySelector("body");
@@ -118,6 +141,7 @@ function loadGame() {
     body.append(computerHeader, selectionSetComputer, selectionSetPlayer, playerFooter);
 }
 
+// Function that parses the player's choice and calls the round calculation
 function startGame(playerChoice) {
     let chosenChoice = "";
 
